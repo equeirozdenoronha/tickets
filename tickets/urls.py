@@ -15,12 +15,15 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.conf.urls import url, include
-from chamado import views
+
+from parceiros import views
+
 
 
 urlpatterns = [
-    url(r'^chat/', include('chat.urls')),
-    url(r'^admin/', admin.site.urls),
-    url(r'^(?P<room_name>[^/]+)/$', views.room, name='room'),
+    #url(r'^chamado/', include('chamado.urls')),
+    # url(r'^$', views.index, name='index'),
+    # url(r'^(?P<room_name>[^/]+)/$', views.room, name='room'),
+    url(r'^api/contato/ligamos-para-voce/' , views.cadastro , name='ligamos-para-voce'),
 
 ]

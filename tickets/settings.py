@@ -24,7 +24,7 @@ SECRET_KEY = '(fc9$)+rznoz+o9=z(+obcz&h_iw2_sc2-t84c3+6+6spddxtf'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-
+SECURE_SSL_REDIRECT = False
 ALLOWED_HOSTS = []
 
 
@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'chamado',
+    'parceiros'
     'channels',
 ]
 
@@ -52,9 +53,11 @@ MIDDLEWARE = [
 ]
 
 CHANNEL_LAYERS = {
-    'default': {
-        'BACKEND': 'asgiref.inmemory.ChannelLayer',
-        'ROUTING': 'django_channels.routing.channel_routing',
+    "default": {
+        "BACKEND": "channels_redis.core.RedisChannelLayer",
+        "CONFIG": {
+            "hosts": [("redis-server-name", 6379)],
+        },
     },
 }
 
@@ -78,14 +81,25 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'tickets.wsgi.application'
 
+ASGI_APPLICATION = "tickets.routing.application"
+
 
 # Database
 # https://docs.djangoproject.com/en/2.0/ref/settings/#databases
 
 DATABASES = {
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.sqlite3',
+    #     'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    # }
+
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'd957dn41sdnvn9',
+        'USER': 'u2nq4lgs89hdi7',
+        'PASSWORD': 'p9da64be66ac30b75cc6622f3b7e8d01c0c8b2d65fb4079f1f7c107bf904d3d9e',
+        'HOST': 'ec2-34-238-218-101.compute-1.amazonaws.com',
+        'PORT': 5432,
     }
 }
 

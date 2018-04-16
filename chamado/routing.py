@@ -1,6 +1,7 @@
-# routing.py
-from channels.routing import route
+from django.conf.urls import url
 
-channel_routing = [
-    route('websocket.receive', 'chat.consumers.ws_echo'),
+from . import consumers
+
+websocket_urlpatterns = [
+    url(r'^ws/chat/(?P<room_name>[^/]+)/$', consumers . ChatConsumer),
 ]
