@@ -17,13 +17,13 @@ from django.contrib import admin
 from django.conf.urls import url, include
 
 from parceiros import views
-
+from django.views.decorators.csrf import csrf_exempt
 
 
 urlpatterns = [
     #url(r'^chamado/', include('chamado.urls')),
     # url(r'^$', views.index, name='index'),
     # url(r'^(?P<room_name>[^/]+)/$', views.room, name='room'),
-    url(r'^api/contato/ligamos-para-voce/' , views.cadastro , name='ligamos-para-voce'),
+    url(r'^api/contato/ligamos-para-voce/', csrf_exempt(views.cadastro) , name='ligamos-para-voce'),
 
 ]

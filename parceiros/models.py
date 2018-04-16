@@ -12,6 +12,3 @@ class Parceiro(models.Model):
     proposta = models.CharField(max_length=350)
     tipo = models.CharField(max_length=40)
 
-    class Meta:
-        def __str__(self):
-            return self.nome

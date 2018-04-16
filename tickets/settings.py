@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'chamado',
-    'parceiros'
+    'parceiros',
     'channels',
 ]
 
@@ -99,7 +99,7 @@ DATABASES = {
         'NAME': 'd2rps1pmu1r97h',
         'USER': 'hfpwgpjpcgdthn',
         'PASSWORD': 'a8364f27238f9918c82b240e6fa7e59fd9bc7b653aa22b5a728344359ca644c0',
-        'HOST': 'ec2-23-23-142-5.compute-1.amazonaws.com/',
+        'HOST': 'ec2-23-23-142-5.compute-1.amazonaws.com',
         'PORT': 5432,
     }
 }
