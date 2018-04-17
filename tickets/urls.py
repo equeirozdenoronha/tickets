@@ -24,7 +24,7 @@ urlpatterns = [
     #url(r'^chamado/', include('chamado.urls')),
     # url(r'^$', views.index, name='index'),
     # url(r'^(?P<room_name>[^/]+)/$', views.room, name='room'),
-    url(r'^api/contato/ligamos-para-voce/', csrf_exempt(views.cadastro) , name='ligamos-para-voce'),
-    url(r'^api/contato/listar-contatos', csrf_exempt(views.get_parceiros), name='listar-contatos')
+    url(r'^api/contato/ligamos-para-voce/', csrf_exempt(views.cadastro), name='ligamos-para-voce'),
+    url(r'^api/contato/listar-contatos/', csrf_exempt(views.get_parceiros), name='listar-contatos')
 
 ]

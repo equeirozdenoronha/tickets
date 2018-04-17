@@ -5,13 +5,15 @@ from parceiros.models import *
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth.models import User
 from flask import Flask
-from flask_cors import CORS
+from flask_cors import CORS, cross_origin
 app = Flask(__name__)
-CORS(app, supports_credentials=True)
+cors = CORS(app, resources={r"/api/*": {"origins": "*"}})
+app.config['CORS_HEADERS'] = 'Content-Type'
 import json
 
+
 @csrf_exempt
-@app.route("api/contato/ligamos-para-voce", methods=['POST'])
+@app.route("/")
 def cadastro(request):
     """Tela de cadastro do parceiro"""
     if request.method == 'POST':
@@ -35,7 +37,7 @@ def cadastro(request):
 
 
 @csrf_exempt
-@app.route("api/contato/listar-contatos", methods=['GET'])
+@app.route("/")
 def get_parceiros(request):
     if request.method == 'GET':
         parceiros = Parceiro.objects.all().values()
