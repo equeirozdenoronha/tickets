@@ -37,3 +37,15 @@ def get_parceiros(request):
         parceiros_list = list(parceiros)
         return JsonResponse(parceiros_list, safe=False)
 
+@cadastro.after_request
+def after_request(response):
+    header = response.headers
+    header['Access-Control-Allow-Origin'] = '*'
+    return response
+
+@get_parceiros.after_request
+def after_request(response):
+    header = response.headers
+    header['Access-Control-Allow-Origin'] = '*'
+    return response
+
