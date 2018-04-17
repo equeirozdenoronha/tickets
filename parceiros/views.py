@@ -29,6 +29,3 @@ def cadastro(request):
 
     return JsonResponse({'mensagem':'Erro'} , safe=False)
 
-def parceirosCadastrados(request):
-    if request.method == 'GET':
-        return
