@@ -28,3 +28,7 @@ def cadastro(request):
         return JsonResponse({'mensagem':'Registrado com sucesso'}, safe=False)
 
     return JsonResponse({'mensagem':'Erro'} , safe=False)
+
+def parceirosCadastrados(request):
+    if request.method == 'GET':
+        return
