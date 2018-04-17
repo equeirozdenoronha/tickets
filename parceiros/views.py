@@ -27,8 +27,14 @@ def cadastro(request):
 
         return JsonResponse({'mensagem':'Registrado com sucesso'}, safe=False)
 
-    return JsonResponse({'mensagem':'Erro'} , safe=False)
+    return JsonResponse({'mensagem':'Erro'}, safe=False)
 
-def parceirosCadastrados(request):
+@csrf_exempt
+def get_parceiros(request):
     if request.method == 'GET':
-        return
+        parceiros = Parceiro.objects.all().values()
+        parceiros_list = list(parceiros)
+        return JsonResponse(parceiros_list, safe=False)
+
+
+
