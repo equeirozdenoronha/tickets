@@ -29,12 +29,11 @@ def cadastro(request):
 
     return JsonResponse({'mensagem':'Erro'}, safe=False)
 
+
 @csrf_exempt
 def get_parceiros(request):
     if request.method == 'GET':
         parceiros = Parceiro.objects.all().values()
         parceiros_list = list(parceiros)
         return JsonResponse(parceiros_list, safe=False)
-
-
 
