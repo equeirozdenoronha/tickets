@@ -39,7 +39,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'chamado',
     'parceiros',
-    'channels',
 ]
 
 MIDDLEWARE = [
