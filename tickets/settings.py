@@ -25,7 +25,7 @@ SECRET_KEY = '(fc9$)+rznoz+o9=z(+obcz&h_iw2_sc2-t84c3+6+6spddxtf'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 SECURE_SSL_REDIRECT = False
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
