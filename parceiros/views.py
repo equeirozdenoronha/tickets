@@ -4,23 +4,16 @@ from django.http import JsonResponse
 from parceiros.models import *
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth.models import User
-from flask import Flask
-from flask_cors import CORS, cross_origin
-app = Flask(__name__)
-cors = CORS(app, resources={r"/api/*": {"origins": "*"}})
-app.config['CORS_HEADERS'] = 'Content-Type'
 import json
 
 
 @csrf_exempt
-@app.route("/")
 def cadastro(request):
     """Tela de cadastro do parceiro"""
+    print(request.body)
     if request.method == 'POST':
 
-        print(request.body)
-        __parceiro = Parceiro
-
+        # print(request.body)
         data = json.loads(request.body.decode('utf-8'))
         nome_empresa = data['nome_empresa']
         nome = data['nome']
@@ -33,11 +26,10 @@ def cadastro(request):
 
         return JsonResponse({'mensagem':'Registrado com sucesso'}, safe=False)
 
-    return JsonResponse({'mensagem':'Erro'}, safe=False)
+    return JsonResponse({'mensagem':request.body}, safe=False)
 
 
 @csrf_exempt
-@app.route("/")
 def get_parceiros(request):
     if request.method == 'GET':
         parceiros = Parceiro.objects.all().values()
