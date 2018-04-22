@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'corsheaders',
     'chamado',
     'parceiros',
+    'duvidas'
 ]
 
 MIDDLEWARE = [
